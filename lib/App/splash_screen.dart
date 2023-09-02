@@ -10,12 +10,17 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Timer.periodic(const Duration(seconds: 3), (timer) {
-      Get.offAllNamed('/signup');
+      // Get.offAllNamed('/signup');
+      Get.toNamed('/login');
       timer.cancel();
     });
     return Scaffold(
       body: Center(
-        child: Image.asset(AppConstants.textLogo),
+        child: GestureDetector(
+            onTap: () {
+              Get.toNamed('/login');
+            },
+            child: Image.asset(AppConstants.textLogo)),
       ),
     );
   }

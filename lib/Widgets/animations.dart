@@ -5,9 +5,17 @@ class AppSlideAnimation extends StatefulWidget {
   final Widget child;
   final AnimateFrom? animateFrom;
   final Curve curve;
+  final double? start;
+
+  /// In milliseconds
+  final int? duration;
+  final int? delay;
   const AppSlideAnimation(
       {required this.child,
       this.curve = Curves.easeInOut,
+      this.duration,
+      this.start,
+      this.delay,
       required this.animateFrom,
       super.key});
 
@@ -21,21 +29,21 @@ class _AppSlideAnimationState extends State<AppSlideAnimation> {
   animation() async {
     switch (widget.animateFrom) {
       case AnimateFrom.left:
-        dx = 0.2;
+        dx = widget.start ?? 0.2;
         dy = 0.0;
       case AnimateFrom.right:
-        dx = -0.2;
+        dx = (widget.start != null ? (-widget.start!) : widget.start) ?? -0.2;
         dy = 0.0;
       case AnimateFrom.top:
-        dy = 0.2;
+        dy = (widget.start != null ? (-widget.start!) : widget.start) ?? -0.2;
         dx = 0.0;
       case AnimateFrom.bottom:
-        dy = -0.2;
+        dy = widget.start ?? 0.2;
         dx = 0.0;
       default:
         dx = dy = 0.0;
     }
-    await Future.delayed(const Duration(milliseconds: 200));
+    await Future.delayed(Duration(milliseconds: widget.delay ?? 100));
     setState(() {});
     dx = dy = 0.0;
   }
@@ -50,7 +58,7 @@ class _AppSlideAnimationState extends State<AppSlideAnimation> {
   @override
   Widget build(BuildContext context) {
     return AnimatedSlide(
-      duration: const Duration(milliseconds: 500),
+      duration: Duration(milliseconds: widget.duration ?? 500),
       offset: Offset(dx, dy),
       curve: widget.curve,
       child: widget.child,
