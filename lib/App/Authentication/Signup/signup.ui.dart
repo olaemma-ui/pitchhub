@@ -88,6 +88,60 @@ class SignupView extends StatelessWidget {
                             start: 1.5,
                             child: AppTextField(
                               controller: _.emailController,
+                              label: 'First Name',
+                              // validator: (value) {
+                              //   return value.isValid(isRequired: true);
+                              // },
+                              error: _.fields['firstName']!['error'],
+                              placeholder: 'Enter your first name',
+                              keyboardType: TextInputType.name,
+                              regex: r'^[A-Za-z]$',
+                            )),
+                        const SizedBox(
+                          height: 12,
+                        ),
+                        AppSlideAnimation(
+                            animateFrom: AnimateFrom.left,
+                            duration: 700,
+                            start: 1.5,
+                            child: AppTextField(
+                              controller: _.emailController,
+                              label: 'Last Name',
+                              // validator: (value) {
+                              //   return value.isValid(isRequired: true);
+                              // },
+                              error: _.fields['lastName']!['error'],
+                              placeholder: 'Enter your last name',
+                              keyboardType: TextInputType.name,
+                              regex: r'[A-Za-z]$',
+                            )),
+                        const SizedBox(
+                          height: 12,
+                        ),
+                        AppSlideAnimation(
+                            animateFrom: AnimateFrom.right,
+                            duration: 700,
+                            start: 1.5,
+                            child: AppTextField(
+                              controller: _.emailController,
+                              label: 'Phone N0',
+                              // validator: (value) {
+                              //   return value.isValid(isRequired: true);
+                              // },
+                              error: _.fields['phoneNumber']!['error'],
+                              placeholder: 'nter your phone number',
+                              keyboardType: TextInputType.phone,
+                              regex: r'[0-9]$',
+                            )),
+                        const SizedBox(
+                          height: 12,
+                        ),
+                        AppSlideAnimation(
+                            animateFrom: AnimateFrom.right,
+                            duration: 700,
+                            start: 1.5,
+                            child: AppTextField(
+                              controller: _.emailController,
                               label: 'Email Address',
                               // validator: (value) {
                               //   return value.isValid(isRequired: true);
@@ -101,7 +155,7 @@ class SignupView extends StatelessWidget {
                           height: 12,
                         ),
                         AppSlideAnimation(
-                            animateFrom: AnimateFrom.right,
+                            animateFrom: AnimateFrom.left,
                             duration: 700,
                             start: 1.5,
                             child: AppTextField(
@@ -133,7 +187,7 @@ class SignupView extends StatelessWidget {
                           height: 16,
                         ),
                         AppSlideAnimation(
-                            animateFrom: AnimateFrom.left,
+                            animateFrom: AnimateFrom.bottom,
                             duration: 700,
                             start: 1.5,
                             child: Column(

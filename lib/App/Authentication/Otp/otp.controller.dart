@@ -1,18 +1,21 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pitchub/Utils/utils.dart';
 import 'package:pitchub/main.dart';
 
-class ForgotPasswordController extends GetxController {
+class OTPController extends GetxController {
   bool loading = false;
+  bool hasError = true;
 
-  final TextEditingController emailController = TextEditingController();
+  final TextEditingController otpController = TextEditingController();
 
   Map<String, Map<String, dynamic>> fields = {};
 
   initializeFields() {
     fields = {
-      'email': {'value': emailController.text, 'error': null, 'required': true},
+      'email': {'value': otpController.text, 'error': null, 'required': true},
     };
   }
 
@@ -22,13 +25,13 @@ class ForgotPasswordController extends GetxController {
     super.onInit();
   }
 
-  onTapForgotPassword() async {
+  onTapOTP() async {
     initializeFields();
     bool valid = AppUtils.validate(data: fields);
     // log('fields = $fields');
     if (valid) {
-      // Call ForgotPassword API
-      Get.toNamed('/otp');
+      // Call OTP API
+      Get.toNamed('/auth_success');
     }
   }
 }

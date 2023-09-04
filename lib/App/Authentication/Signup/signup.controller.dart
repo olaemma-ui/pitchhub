@@ -10,6 +10,9 @@ class SignupController extends GetxController {
   bool loading = false;
 
   final TextEditingController emailController = TextEditingController();
+  final TextEditingController firstNameController = TextEditingController();
+  final TextEditingController lastNameController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
@@ -18,6 +21,21 @@ class SignupController extends GetxController {
 
   initializeFields() {
     fields = {
+      'firstName': {
+        'value': firstNameController.text,
+        'error': null,
+        'required': true
+      },
+      'lastName': {
+        'value': lastNameController.text,
+        'error': null,
+        'required': true
+      },
+      'phoneNumber': {
+        'value': phoneController.text,
+        'error': null,
+        'required': true
+      },
       'email': {'value': emailController.text, 'error': null, 'required': true},
       'password': {
         'value': passwordController.text,
