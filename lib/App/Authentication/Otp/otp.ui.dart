@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
@@ -41,10 +43,13 @@ class OTPView extends GetWidget<OTPController> {
       focusedPinTheme: focusedPinTheme,
       submittedPinTheme: submittedPinTheme,
       validator: (s) {
+        controller.otpController.text = s ?? '';
         controller.hasError = !(s == '2222');
+        log('hasError = ${controller.hasError} value = ${controller.otpController.text}');
         return s == '2222' ? null : 'Invalid Verification Code';
       },
       pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
+      errorText: controller.fields['number']!['error'],
       errorTextStyle: textTheme.labelMedium!.copyWith(color: ColorConstant.red),
       showCursor: true,
       onCompleted: (pin) => print(pin),

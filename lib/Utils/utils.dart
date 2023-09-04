@@ -6,10 +6,17 @@ class AppUtils {
     data.forEach((key, value) {
       if (data[key]!['required'] && (data[key]!['value'] as String).isEmpty) {
         data[key]!['error'] = 'This field is required';
+        valid = false;
       } else {
         if (key == 'email') {
           if (!(data[key]!['value'] as String).isEmail) {
             data[key]!['error'] = 'Enter a valid E-mail address';
+            valid = false;
+          }
+        }
+        if (key == 'number') {
+          if (!(data[key]!['value'] as String).isNumericOnly) {
+            data[key]!['error'] = 'Number characters only';
             valid = false;
           }
         }

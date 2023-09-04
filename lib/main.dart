@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pitchub/App/Authentication/ForgotPassword/forgot_password.ui.dart';
 import 'package:pitchub/App/Authentication/Login/login.ui.dart';
+import 'package:pitchub/App/Authentication/Otp/otp.binding.dart';
 import 'package:pitchub/App/Authentication/Otp/otp.ui.dart';
 import 'package:pitchub/App/Authentication/Signup/signup.ui.dart';
 import 'package:pitchub/App/Success%20Screens/auth_success_screen.dart';
@@ -52,6 +53,7 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: '/otp',
           page: () => OTPView(),
+          binding: OTPBinding(),
           transition: Transition.fadeIn,
         ),
         GetPage(

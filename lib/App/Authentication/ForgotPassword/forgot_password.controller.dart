@@ -1,7 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pitchub/Utils/utils.dart';
-import 'package:pitchub/main.dart';
+// import 'package:pitchub/main.dart';
 
 class ForgotPasswordController extends GetxController {
   bool loading = false;
@@ -25,7 +27,8 @@ class ForgotPasswordController extends GetxController {
   onTapForgotPassword() async {
     initializeFields();
     bool valid = AppUtils.validate(data: fields);
-    // log('fields = $fields');
+    log('valid = $valid');
+    log('fields = $fields');
     if (valid) {
       // Call ForgotPassword API
       Get.toNamed('/otp');

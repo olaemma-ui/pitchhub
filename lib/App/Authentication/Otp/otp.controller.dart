@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pitchub/Utils/utils.dart';
-import 'package:pitchub/main.dart';
 
 class OTPController extends GetxController {
   bool loading = false;
@@ -15,7 +14,7 @@ class OTPController extends GetxController {
 
   initializeFields() {
     fields = {
-      'email': {'value': otpController.text, 'error': null, 'required': true},
+      'number': {'value': otpController.text, 'error': null, 'required': true},
     };
   }
 
@@ -28,7 +27,7 @@ class OTPController extends GetxController {
   onTapOTP() async {
     initializeFields();
     bool valid = AppUtils.validate(data: fields);
-    // log('fields = $fields');
+    log('fields = $fields');
     if (valid) {
       // Call OTP API
       Get.toNamed('/auth_success');
