@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+final size = MediaQuery.of(Get.context!).size;
 
 extension ColorFormatter on String {
   hex() => Color(int.parse(replaceAll('#', '0XFF')));
@@ -16,5 +19,3 @@ extension LateStringExtension on String? {
     }
   }
 }
-
-

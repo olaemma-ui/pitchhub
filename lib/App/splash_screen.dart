@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pitchub/Utils/constants.dart';
+import 'package:pitchub/Utils/routes.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -11,14 +12,14 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Timer.periodic(const Duration(seconds: 3), (timer) {
       // Get.offAllNamed('/signup');
-      Get.toNamed('/login');
+      Get.toNamed(AppRoute.appView);
       timer.cancel();
     });
     return Scaffold(
       body: Center(
         child: GestureDetector(
             onTap: () {
-              Get.toNamed('/login');
+              Get.toNamed(AppRoute.appView);
             },
             child: Image.asset(AppConstants.textLogo)),
       ),

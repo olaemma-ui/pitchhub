@@ -124,12 +124,12 @@ class SignupView extends StatelessWidget {
                             start: 1.5,
                             child: AppTextField(
                               controller: _.emailController,
-                              label: 'Phone N0',
+                              label: 'Phone Number',
                               // validator: (value) {
                               //   return value.isValid(isRequired: true);
                               // },
                               error: _.fields['phoneNumber']!['error'],
-                              placeholder: 'nter your phone number',
+                              placeholder: '000 0000 000',
                               keyboardType: TextInputType.phone,
                               regex: r'[0-9]$',
                             )),

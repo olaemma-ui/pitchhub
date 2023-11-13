@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pitchub/Utils/routes.dart';
 import 'package:pitchub/Utils/utils.dart';
 
 class OTPController extends GetxController {
@@ -30,7 +31,7 @@ class OTPController extends GetxController {
     log('fields = $fields');
     if (valid) {
       // Call OTP API
-      Get.toNamed('/auth_success');
+      Get.toNamed(AppRoute.createNewPassword);
     }
   }
 }

@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pitchub/Utils/routes.dart';
 import 'package:pitchub/Utils/utils.dart';
 // import 'package:pitchub/main.dart';
 
@@ -31,7 +32,7 @@ class ForgotPasswordController extends GetxController {
     log('fields = $fields');
     if (valid) {
       // Call ForgotPassword API
-      Get.toNamed('/otp');
+      Get.toNamed(AppRoute.otp);
     }
   }
 }

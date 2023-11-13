@@ -10,22 +10,33 @@ class AppButton extends StatelessWidget {
   final Function()? onPressed;
   final Widget? icon;
   final Color? color;
+  final Color? valueColor;
+  final EdgeInsets? padding;
+  final bool? border;
   const AppButton({
     Key? key,
     this.value,
     this.icon,
     this.color,
+    this.valueColor,
     required this.isActive,
     required this.onPressed,
+    this.padding,
+    this.border,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
-    return SizedBox(
+    return Container(
       width: 500,
+      decoration: border?? false ? BoxDecoration(
+          border: Border.all(width: 1, color: ColorConstant.dark),
+          borderRadius: BorderRadius.circular(8)) : null,
       child: CupertinoButton(
         // disabledColor: ColorConstant.grey,
+
+        padding: padding,
         onPressed: onPressed,
         color: color ?? (isActive ? ColorConstant.brand : ColorConstant.grey),
         child: Row(
@@ -36,7 +47,7 @@ class AppButton extends StatelessWidget {
             Text(
               value ?? '',
               style: textTheme.labelMedium!.copyWith(
-                  color: isActive ? ColorConstant.light : ColorConstant.dark),
+                  color: isActive ? valueColor ?? ColorConstant.light : valueColor ?? ColorConstant.dark),
             ),
           ],
         ),

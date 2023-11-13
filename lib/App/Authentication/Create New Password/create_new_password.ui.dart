@@ -7,13 +7,11 @@ import 'package:pitchub/Utils/enums.dart';
 import 'package:pitchub/Utils/style.dart';
 import 'package:pitchub/Widgets/animations.dart';
 import 'package:pitchub/Widgets/app_button.widget.dart';
-import 'package:pitchub/Widgets/app_text_button.widget.dart';
 import 'package:pitchub/Widgets/app_textfield.widget.dart';
-import 'package:pitchub/Widgets/form_divider.widget.dart';
 
 import 'create_new_password.controller.dart';
 
-class CreateNewPasswordView extends StatelessWidget {
+class CreateNewPasswordView extends GetWidget<CreateNewPasswordController> {
   const CreateNewPasswordView({super.key});
 
   @override
@@ -94,7 +92,7 @@ class CreateNewPasswordView extends StatelessWidget {
                               // validator: (value) {
                               //   return value.isValid(isRequired: true);
                               // },
-                              error: _.fields['email']!['error'],
+                              error: _.fields['password']!['error'],
                               placeholder: 'Enter new password',
                               keyboardType: TextInputType.visiblePassword,
                               regex: r'^[a-zA-Z0-9!@#$%^&\*]*$',
@@ -102,7 +100,6 @@ class CreateNewPasswordView extends StatelessWidget {
                         const SizedBox(
                           height: 12,
                         ),
-
                         AppSlideAnimation(
                             animateFrom: AnimateFrom.left,
                             duration: 700,
@@ -114,7 +111,7 @@ class CreateNewPasswordView extends StatelessWidget {
                               //   return value.isValid(isRequired: true);
                               // },
                               isPassword: true,
-                              error: _.fields['email']!['error'],
+                              error: _.fields['confirm_password']!['error'],
                               placeholder: 'Enter new password',
                               keyboardType: TextInputType.visiblePassword,
                               regex: r'^[a-zA-Z0-9!@#$%^&\*]*$',

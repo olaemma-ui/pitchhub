@@ -27,7 +27,7 @@ class AppTextField extends StatefulWidget {
     this.maxLength,
     this.maxLines = 1,
     this.keyboardType,
-    required this.regex,
+    this.regex,
     this.animateFrom,
     this.isPassword,
     this.error,
@@ -57,7 +57,7 @@ class _AppTextFieldState extends State<AppTextField> {
           controller: widget.controller,
           maxLines: widget.maxLines,
           maxLength: widget.maxLength,
-          obscureText: (widget.isPassword ?? false) ? showPassword : false,
+          obscureText: (widget.isPassword ?? false) ? !showPassword : false,
           onTapOutside: (event) {
             FocusManager.instance.primaryFocus!.unfocus();
           },
@@ -82,7 +82,7 @@ class _AppTextFieldState extends State<AppTextField> {
                       child: Padding(
                         padding: const EdgeInsets.all(4.0),
                         child: Icon(
-                          !showPassword
+                          showPassword
                               ? CupertinoIcons.eye
                               : CupertinoIcons.eye_slash,
                           size: 18,

@@ -1,20 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pitchub/Utils/routes.dart';
 import 'package:pitchub/Utils/utils.dart';
-import 'package:pitchub/main.dart';
 
 class CreateNewPasswordController extends GetxController {
   bool loading = false;
 
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
 
   Map<String, Map<String, dynamic>> fields = {};
 
   initializeFields() {
     fields = {
-      'password': {'value': passwordController.text, 'error': null, 'required': true},
-      'confirm_password': {'value': confirmPasswordController.text, 'error': null, 'required': true},
+      'password': {
+        'value': passwordController.text,
+        'error': null,
+        'required': true
+      },
+      'confirm_password': {
+        'value': confirmPasswordController.text,
+        'error': null,
+        'required': true
+      },
     };
   }
 
@@ -30,7 +39,7 @@ class CreateNewPasswordController extends GetxController {
     // log('fields = $fields');
     if (valid) {
       // Call CreateNewPassword API
-      Get.toNamed('/otp');
+      Get.toNamed(AppRoute.success);
     }
   }
 }
