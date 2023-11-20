@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pitchub/Utils/routes.dart';
-import 'package:pitchub/Utils/theme.dart';
+import 'package:pitchub/theme/theme.dart';
 
 // log(String value) {
 //   if (kDebugMode) log(value);

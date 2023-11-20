@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'package:pitchub/Utils/style.dart';
+import 'package:pitchub/core/style.dart';
 
 
 class AppTextButton extends StatelessWidget {
