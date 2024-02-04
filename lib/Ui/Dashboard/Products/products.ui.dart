@@ -26,25 +26,30 @@ class ProductsPage extends GetWidget<ProductsController> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AppSeparator(
-                    title: 'All Categories',
-                    color: ColorConstant.blue,
-                    leadingColor: ColorConstant.light,
-                    trailingText: 'See All'),
+                const AppSeparator(
+                  title: 'Categories',
+                  color: ColorConstant.light,
+                  leadingColor: ColorConstant.light,
+                  trailingText: '',
+                ),
                 const SizedBox(height: 8),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Wrap(
-                    spacing: 8,
-                    runSpacing: 16,
-                    clipBehavior: Clip.hardEdge,
-                    children: List.generate(
+                  child: SingleChildScrollView(
+                    physics: const BouncingScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: List.generate(
                         7,
                         (index) => AppCategories(
-                            icon: FlutterIcons.car_ant,
-                            color: ColorConstant.blue_500,
-                            onTap: () {},
-                            text: 'Shoes with bangs')),
+                          icon: FlutterIcons.car_ant,
+                          color: ColorConstant.blue_500,
+                          onTap: () {},
+                          text: 'Shoes with bangs',
+                        ).paddingOnly(left: 8, right: 8),
+                      ),
+                    ),
                   ),
                 ),
                 const SizedBox(height: 8),

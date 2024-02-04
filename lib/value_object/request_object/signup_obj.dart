@@ -1,38 +1,42 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
-class SignupObject {
+class SignupRequest {
   final String firstName;
   final String lastName;
-  final String phone;
+  final String phoneNumber;
   final String email;
   final String password;
-  final String confirmPassword;
+  final String userType;
+  final bool agreeToTerm;
 
-  SignupObject({
+  SignupRequest({
     required this.firstName,
     required this.lastName,
-    required this.phone,
+    required this.phoneNumber,
     required this.email,
     required this.password,
-    required this.confirmPassword,
+    required this.userType,
+    required this.agreeToTerm,
   });
 
-  SignupObject copyWith({
+  SignupRequest copyWith({
     String? firstName,
     String? lastName,
-    String? phone,
+    String? phoneNumber,
     String? email,
     String? password,
-    String? confirmPassword,
+    String? userType,
+    bool? agreeToTerm,
   }) {
-    return SignupObject(
+    return SignupRequest(
       firstName: firstName ?? this.firstName,
       lastName: lastName ?? this.lastName,
-      phone: phone ?? this.phone,
+      phoneNumber: phoneNumber ?? this.phoneNumber,
       email: email ?? this.email,
       password: password ?? this.password,
-      confirmPassword: confirmPassword ?? this.confirmPassword,
+      userType: userType ?? this.userType,
+      agreeToTerm: agreeToTerm ?? this.agreeToTerm,
     );
   }
 
@@ -40,53 +44,57 @@ class SignupObject {
     return <String, dynamic>{
       'firstName': firstName,
       'lastName': lastName,
-      'phone': phone,
+      'phoneNumber': phoneNumber,
       'email': email,
       'password': password,
-      'confirmPassword': confirmPassword,
+      'userType': userType,
+      'agreeToTerm': agreeToTerm,
     };
   }
 
-  factory SignupObject.fromMap(Map<String, dynamic> map) {
-    return SignupObject(
+  factory SignupRequest.fromMap(Map<String, dynamic> map) {
+    return SignupRequest(
       firstName: map['firstName'] as String,
       lastName: map['lastName'] as String,
-      phone: map['phone'] as String,
+      phoneNumber: map['phoneNumber'] as String,
       email: map['email'] as String,
       password: map['password'] as String,
-      confirmPassword: map['confirmPassword'] as String,
+      userType: map['userType'] as String,
+      agreeToTerm: map['agreeToTerm'] as bool,
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory SignupObject.fromJson(String source) =>
-      SignupObject.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory SignupRequest.fromJson(String source) =>
+      SignupRequest.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() {
-    return 'SignupObject(firstName: $firstName, lastName: $lastName, phone: $phone, email: $email, password: $password, confirmPassword: $confirmPassword)';
+    return 'SignupRequest(firstName: $firstName, lastName: $lastName, phoneNumber: $phoneNumber, email: $email, password: $password, userType: $userType, agreeToTerm: $agreeToTerm)';
   }
 
   @override
-  bool operator ==(covariant SignupObject other) {
+  bool operator ==(covariant SignupRequest other) {
     if (identical(this, other)) return true;
 
     return other.firstName == firstName &&
         other.lastName == lastName &&
-        other.phone == phone &&
+        other.phoneNumber == phoneNumber &&
         other.email == email &&
         other.password == password &&
-        other.confirmPassword == confirmPassword;
+        other.userType == userType &&
+        other.agreeToTerm == agreeToTerm;
   }
 
   @override
   int get hashCode {
     return firstName.hashCode ^
         lastName.hashCode ^
-        phone.hashCode ^
+        phoneNumber.hashCode ^
         email.hashCode ^
         password.hashCode ^
-        confirmPassword.hashCode;
+        userType.hashCode ^
+        agreeToTerm.hashCode;
   }
 }

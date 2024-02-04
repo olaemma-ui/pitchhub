@@ -10,14 +10,15 @@ class AppSlideAnimation extends StatefulWidget {
   /// In milliseconds
   final int? duration;
   final int? delay;
-  const AppSlideAnimation(
-      {required this.child,
-      this.curve = Curves.easeInOut,
-      this.duration,
-      this.start,
-      this.delay,
-      required this.animateFrom,
-      super.key});
+  const AppSlideAnimation({
+    required this.child,
+    this.curve = Curves.easeInOut,
+    this.duration,
+    this.start,
+    this.delay,
+    required this.animateFrom,
+    super.key,
+  });
 
   @override
   State<AppSlideAnimation> createState() => _AppSlideAnimationState();

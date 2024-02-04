@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:pitchub/core/extensions.dart';
 
-class ColorConstant {
+
+
+
+/// This [ColorConstant] class is an abstract class that contains all 
+/// the colors that will be used all through the application
+abstract class ColorConstant {
+
+  ///[primary] This is the application primary color
   static final Color primary = '#FC4E78'.hex();
   static final Color grey = '#9F9D9D'.hex();
   static final Color greenAcent = '#DCFFDE'.hex();
