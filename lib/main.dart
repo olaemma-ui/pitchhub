@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pitchub/Utils/routes.dart';
+import 'package:pitchub/app/app.locator.dart';
 import 'package:pitchub/service/localstorage_service/local_storage_service.dart';
 import 'package:pitchub/theme/theme.dart';
 
@@ -9,6 +10,7 @@ import 'package:pitchub/theme/theme.dart';
 // }
 
 Future<void> main() async {
+  setUpLocator();
   await LocalStorageService.init();
   runApp(const MyApp());
 }
