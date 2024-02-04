@@ -1,6 +1,5 @@
-import 'package:flutter/foundation.dart';
+import 'package:pitchub/core/style.dart';
 import 'package:flutter/material.dart';
-import 'package:pitchub/Utils/style.dart';
 
 class FormDivider extends StatelessWidget {
   final String text;

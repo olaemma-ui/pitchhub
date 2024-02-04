@@ -36,10 +36,12 @@ dependencies:
   get: ^4.6.5
   hive: ^2.2.3
   hive_flutter: ^1.1.0
+  dio: ^5.3.2
+  pinput: ^3.0.1
   icons_flutter: ^0.0.4
   pinput: ^3.0.1
   smooth_page_indicator: ^1.1.0
-  sticky_headers: ^0.3.0+2
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
 

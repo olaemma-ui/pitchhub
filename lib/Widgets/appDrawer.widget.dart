@@ -2,11 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AppDrawer extends StatelessWidget {
-  AppDrawer({super.key});
+  const AppDrawer({super.key});
 
-  final List<Map<String, String>> _routes = [
-    {'text': ''}
-  ];
 
   @override
   Widget build(BuildContext context) {

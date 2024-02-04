@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:icons_flutter/icons_flutter.dart';
-import 'package:pitchub/Utils/style.dart';
+import 'package:pitchub/core/style.dart';
 import 'package:pitchub/Widgets/app_button.widget.dart';
 
 class AppProductCard extends StatelessWidget {

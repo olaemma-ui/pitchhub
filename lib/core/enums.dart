@@ -1,0 +1,7 @@
+
+
+enum LocalStorageKey {
+  token,
+  password,
+  
+}

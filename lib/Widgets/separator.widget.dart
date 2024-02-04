@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pitchub/Utils/style.dart';
 
 class AppSeparator extends StatelessWidget {
   final String title;
