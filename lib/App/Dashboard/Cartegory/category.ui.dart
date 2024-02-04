@@ -96,7 +96,8 @@ class CategoryPage extends GetWidget<CategoryPageController> {
                                           ? 4
                                           : size.width <= 1400
                                               ? 6
-                                              : 8),
+                                              : 8
+                                              ),
                     ),
                   )),
             ],

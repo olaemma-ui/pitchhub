@@ -57,9 +57,11 @@ class AppProductCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(price,
-                    style: textTheme.labelLarge,
-                    overflow: TextOverflow.ellipsis),
+                Flexible(
+                  child: Text(price,
+                      style: textTheme.labelLarge,
+                      overflow: TextOverflow.ellipsis),
+                ),
                 Align(
                     alignment: Alignment.topRight,
                     child: InkWell(
