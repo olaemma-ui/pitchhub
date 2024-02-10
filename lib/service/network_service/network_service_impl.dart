@@ -38,6 +38,7 @@ class NetworkServiceImpl extends NetworkService{
   Future<Either<Failure, ResponseObject<T>>> getUri<T>(Uri uri, {Map<String, dynamic>? headers, queryParameters}) async{
     // TODO: implement getUri
     try{
+      
       final response = await _dio.getUri(uri, options: Options(headers: headers));
       return Right(ResponseObject(
         statusCode: response.statusCode, 
@@ -53,7 +54,10 @@ class NetworkServiceImpl extends NetworkService{
   Future<Either<Failure, ResponseObject<T>>> postUri<T>(Uri uri, {Map<String, dynamic>? headers, Map<String, dynamic>? body, queryParameters}) async{
     // TODO: implement postUri
     try{
-      final response = await _dio.postUri(uri, options: Options(headers: headers));
+      final response = await _dio.postUri<T>(
+       uri, 
+       options: Options(headers: headers), 
+       data: body);
       return Right(ResponseObject(
         statusCode: response.statusCode, 
         statusMessage: response.statusMessage, 

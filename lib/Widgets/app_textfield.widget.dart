@@ -11,7 +11,7 @@ import 'package:pitchub/core/style.dart';
 class AppTextField extends StatefulWidget {
   String? label;
   String? placeholder;
-  TextEditingController controller;
+  TextEditingController? controller;
   String? regex;
   final int? maxLength;
   final int maxLines;
@@ -19,6 +19,7 @@ class AppTextField extends StatefulWidget {
   final AnimateFrom? animateFrom;
   final bool? isPassword;
   String? error;
+  final Function(String? value)? onChange;
 
   AppTextField({
     Key? key,
@@ -31,7 +32,8 @@ class AppTextField extends StatefulWidget {
     this.animateFrom,
     this.isPassword,
     this.error,
-    required this.controller,
+    this.controller,
+    this.onChange
   }) : super(key: key);
 
   @override
@@ -55,6 +57,7 @@ class _AppTextFieldState extends State<AppTextField> {
         ),
         TextFormField(
           controller: widget.controller,
+          onChanged: widget.onChange,
           maxLines: widget.maxLines,
           maxLength: widget.maxLength,
           obscureText: (widget.isPassword ?? false) ? !showPassword : false,

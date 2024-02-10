@@ -86,7 +86,7 @@ class SignupView extends StatelessWidget {
                             duration: 700,
                             start: 1.5,
                             child: AppTextField(
-                              controller: _.emailController,
+                              // controller: _.emailController,
                               label: 'First Name',
                               // validator: (value) {
                               //   return value.isValid(isRequired: true);
@@ -94,7 +94,8 @@ class SignupView extends StatelessWidget {
                               error: _.fields['firstName']!['error'],
                               placeholder: 'Enter your first name',
                               keyboardType: TextInputType.name,
-                              regex: r'^[A-Za-z]$',
+                              regex: r'^[A-Za-z]{0,}$',
+                              onChange: _.setFirstname,
                             )),
                         const SizedBox(
                           height: 12,
@@ -104,7 +105,7 @@ class SignupView extends StatelessWidget {
                             duration: 700,
                             start: 1.5,
                             child: AppTextField(
-                              controller: _.emailController,
+                              // controller: _.emailController,
                               label: 'Last Name',
                               // validator: (value) {
                               //   return value.isValid(isRequired: true);
@@ -112,7 +113,8 @@ class SignupView extends StatelessWidget {
                               error: _.fields['lastName']!['error'],
                               placeholder: 'Enter your last name',
                               keyboardType: TextInputType.name,
-                              regex: r'[A-Za-z]$',
+                              regex: r'[A-Za-z]{0,}$',
+                              onChange: _.setLastname,
                             )),
                         const SizedBox(
                           height: 12,
@@ -122,7 +124,7 @@ class SignupView extends StatelessWidget {
                             duration: 700,
                             start: 1.5,
                             child: AppTextField(
-                              controller: _.emailController,
+                              // controller: _.emailController,
                               label: 'Phone Number',
                               // validator: (value) {
                               //   return value.isValid(isRequired: true);
@@ -130,7 +132,9 @@ class SignupView extends StatelessWidget {
                               error: _.fields['phoneNumber']!['error'],
                               placeholder: '000 0000 000',
                               keyboardType: TextInputType.phone,
-                              regex: r'[0-9]$',
+                              // regex: r'[0-9]?{1,11}$',
+                              maxLength: 11,
+                              onChange: _.setPhoneNumber,
                             )),
                         const SizedBox(
                           height: 12,
@@ -140,7 +144,7 @@ class SignupView extends StatelessWidget {
                             duration: 700,
                             start: 1.5,
                             child: AppTextField(
-                              controller: _.emailController,
+                              // controller: _.emailController,
                               label: 'Email Address',
                               // validator: (value) {
                               //   return value.isValid(isRequired: true);
@@ -149,6 +153,7 @@ class SignupView extends StatelessWidget {
                               placeholder: 'example@domain.com',
                               keyboardType: TextInputType.emailAddress,
                               regex: r'^(([\w-0-9^<>()[\]\\.,;:\s@\"]{1,}))$',
+                              onChange: _.setEmail,
                             )),
                         const SizedBox(
                           height: 12,
@@ -158,13 +163,14 @@ class SignupView extends StatelessWidget {
                             duration: 700,
                             start: 1.5,
                             child: AppTextField(
-                              controller: _.passwordController,
+                              // controller: _.passwordController,
                               label: 'Password',
                               isPassword: true,
                               placeholder: 'Password',
                               error: _.fields['password']!['error'],
                               keyboardType: TextInputType.visiblePassword,
                               regex: r'^[a-zA-Z0-9!@#$%^&\*]*$',
+                              onChange: _.setPassword,
                             )),
                         const SizedBox(
                           height: 12,
@@ -289,15 +295,17 @@ class SignupView extends StatelessWidget {
                             child: Column(
                               children: [
                                 AppButton(
-                                  isActive: true,
-                                  onPressed: () async {
-                                    _.update();
-                                    _.loading = true;
-                                    await _.onTapSignup();
-                                    _.loading = false;
-                                    _.update();
-                                  },
-                                  value: 'Create Account',
+                                  isActive: !_.loading,
+                                  onPressed: _.onTapSignup,
+                                  value: !_.loading? 'Create Account': null,
+                                  icon: const SizedBox(
+                                    width: 15,
+                                    height: 15,
+                                    child: CircularProgressIndicator(
+                                      strokeWidth: 2,
+                                      color: ColorConstant.brand,
+                                    )
+                                  ),
                                 ),
                                 const SizedBox(height: 24),
                                 const FormDivider(text: 'Or sign up with'),

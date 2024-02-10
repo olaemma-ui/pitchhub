@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:pitchub/exceptions/exceptions.dart';
 import 'package:pitchub/value_object/response_object/base/base_response.dart';
 
-
 /// [NetworkService] This class handles 
 abstract class NetworkService {
   
