@@ -2,12 +2,12 @@
 import 'dart:convert';
 
 class LoginObject {
-  final String email;
-  final String password;
+  final String? email;
+  final String? password;
   
   LoginObject({
-    required this.email,
-    required this.password,
+   this.email,
+    this.password,
   });
 
   LoginObject copyWith({

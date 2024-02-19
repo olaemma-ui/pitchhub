@@ -70,7 +70,11 @@ class SignupController extends GetxController {
         'error': null,
         'required': true
       },
-      'email': {'value': user.email, 'error': null, 'required': true},
+      'email': {
+        'value': user.email, 
+        'error': null, 
+        'required': true
+      },
       'password': {
         'value': user.password,
         'error': null,
@@ -121,7 +125,11 @@ class SignupController extends GetxController {
         }, (response) {
           Get.snackbar("Success", response.data!["message"], backgroundColor: Colors.green);
         });
-
+        loading = false;
+        update();
+      }else{
+        loading = false;
+        update();
       }
       loading = false;
       update();

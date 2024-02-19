@@ -88,6 +88,7 @@ class LoginView extends StatelessWidget {
                             child: AppTextField(
                               controller: _.emailController,
                               label: 'Email Address',
+                              onChange: _.setEmail,
                               // validator: (value) {
                               //   return value.isValid(isRequired: true);
                               // },
@@ -105,6 +106,7 @@ class LoginView extends StatelessWidget {
                             start: 1.5,
                             child: AppTextField(
                               controller: _.passwordController,
+                              onChange: _.setPassword,
                               label: 'Password',
                               isPassword: true,
                               placeholder: 'Password',
@@ -176,15 +178,17 @@ class LoginView extends StatelessWidget {
                             child: Column(
                               children: [
                                 AppButton(
-                                  isActive: true,
-                                  onPressed: () async {
-                                    _.update();
-                                    _.loading = true;
-                                    await _.onTapLogin();
-                                    _.loading = false;
-                                    _.update();
-                                  },
-                                  value: 'Sign in',
+                                  isActive: !_.loading,
+                                  onPressed: _.onTapLogin,
+                                  value: !_.loading? 'Sign in': null,
+                                  icon: const SizedBox(
+                                    width: 15,
+                                    height: 15,
+                                    child: CircularProgressIndicator(
+                                      strokeWidth: 2,
+                                      color: ColorConstant.brand,
+                                    )
+                                  ),
                                 ),
                                 const SizedBox(height: 24),
                                 const FormDivider(text: 'Or sign in with'),
